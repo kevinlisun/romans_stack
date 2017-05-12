@@ -1,0 +1,7 @@
+sensor_msgs/Image depth
+sensor_msgs/Image semantic_map
+---
+sensor_msgs/Image colored_semantic_map
+sensor_msgs/PointCloud2 semantic_cloud
+
+

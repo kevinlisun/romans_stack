@@ -1,0 +1,16 @@
+train_net: "train.prototxt"
+test_net: "test.prototxt"
+test_iter: 0#1000
+test_interval: 999999
+average_loss: 1000
+base_lr: 0.001
+lr_policy: "step"
+gamma: 0.5
+stepsize: 5000
+display: 100
+max_iter: 450000
+momentum: 0.9
+weight_decay: 0.0005
+snapshot: 1000
+snapshot_prefix: "/home/kevin/snapshot/washington"
+solver_mode: GPU

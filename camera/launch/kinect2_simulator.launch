@@ -1,0 +1,11 @@
+<!--
+	Launch file for repaly recorded rosbag file (simulator)
+	
+	SoCS, UoBham. Kevin Li Sun. Sep 2016
+-->
+
+<launch>
+	
+    <node pkg="rviz" type="rviz" name="rviz" output="screen" args="-d $(find camera)/configs/kinect2.rviz" />
+
+</launch>

@@ -1,0 +1,4 @@
+<launch>
+    <arg name="data_path" default="$(find camera)/data/" />	
+    <node pkg="camera" type="kinect_simulator" name="kinect_simulator" output="screen" args="$(arg data_path)" ns="romans" />   
+</launch>

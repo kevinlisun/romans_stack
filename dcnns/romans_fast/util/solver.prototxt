@@ -1,0 +1,16 @@
+train_net: "train.prototxt"
+test_net: "test.prototxt"
+test_iter: 700
+test_interval: 500
+average_loss: 1000
+base_lr: 0.001
+lr_policy: "step"
+gamma: 0.5
+stepsize: 3000
+display: 500
+max_iter: 450000
+momentum: 0.9
+weight_decay: 0.005
+snapshot: 1000
+snapshot_prefix: "/home/kevin/snapshot/rgbd"
+solver_mode: GPU

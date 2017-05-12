@@ -1,0 +1,7 @@
+sensor_msgs/Image rgb
+sensor_msgs/Image depth
+sensor_msgs/PointCloud2 pcl
+std_msgs/Float32 scale
+---
+Proposal proposals
+sensor_msgs/Image masked_depth

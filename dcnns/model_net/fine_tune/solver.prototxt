@@ -1,0 +1,15 @@
+train_net: "train.prototxt"
+test_net: "test.prototxt"
+test_iter: 0#2356
+test_interval: 9999999
+base_lr: 0.01
+lr_policy: "step"
+gamma: 0.1
+stepsize: 50000
+display: 1000
+max_iter: 450000
+momentum: 0.95
+weight_decay: 0.0005
+snapshot: 1000
+snapshot_prefix: "/home/kevin/snapshot/snapshot"
+solver_mode: GPU

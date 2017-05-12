@@ -1,0 +1,10 @@
+<launch>	
+    <node pkg="rviz" type="rviz" name="rviz" output="screen" args="-d $(find semantic_labelling)/configs/semantic_labelling.rviz" />
+
+    <!-- include file="$(find camera)/launch/kinect.launch" / -->
+
+    <include file="$(find camera)/launch/kinect.launch">
+        <arg name="data_path" value="$(find camera)/data/" />
+    </include>
+</launch>
+

@@ -1,0 +1,16 @@
+train_net: "train.prototxt"
+test_net: "test.prototxt"
+test_iter: 1
+test_interval: 999999999
+average_loss: 1000
+base_lr: 0.001
+lr_policy: "fixed"
+gamma: 0.1
+stepsize: 50000
+display: 500
+max_iter: 200000
+momentum: 0.9
+weight_decay: 0.0005
+snapshot: 1000
+snapshot_prefix: "/home/kevin/snapshot/romans_stage2"
+solver_mode: GPU

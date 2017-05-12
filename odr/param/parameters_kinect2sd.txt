@@ -1,0 +1,12 @@
+# fuck yaml, this is better!
+
+detector=SIFT
+descriptor=SIFT
+good_match_threshold=4
+
+# camera
+camera.cx=2.5290228440440876e+02;
+camera.cy=2.0728757467577864e+02;
+camera.fx=3.6399067995748811e+02;
+camera.fy=3.6442449178858186e+02;
+camera.scale=1000.0;
