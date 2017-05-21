@@ -1,3 +1,10 @@
+## Description
+- odr: **o**bject **d**etection and **r**ecognition framework.
+- camera: camera simulator and configurations.
+- dcnn: Deep Convolutional Neural Network architectures and training scripts.
+- matlab_toobox: matlab scripts for data pre-processing.
+
+
 ## Prerequsites
 
 - If you just want to run the **demo**.
@@ -74,7 +81,7 @@ This demo assumes you download the 'romans' folder and put it under home directo
   $ cd ~/romans/data & rosbag play --clock demo.bag
   ```
 
-     **Or** get RGBD stream from kinect2
+  **Or** get RGBD stream from kinect2
   ```
   $ roslaunch camera kinect2.launch
   ```
