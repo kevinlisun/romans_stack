@@ -47,7 +47,7 @@
 
 2. Create .rosinstall file and copy the followings:
   ```
-  - git: {local-name: romans_stack, uri: 'git@bitbucket.org:kevinlisun/romans_stack.git', version: master}
+  - git: {local-name: romans_stack, uri: 'https://github.com/sunliamm/romans_stack', version: master}
   - git: {local-name: iai_kinect2, uri: 'https://github.com/code-iai/iai_kinect2', version: master}
   ```
 3. Clone the repositories:
