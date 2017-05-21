@@ -9,6 +9,7 @@ gamma: 0.1
 stepsize: 50000
 display: 500
 max_iter: 200000
+iter_size: 2
 momentum: 0.9
 weight_decay: 0.0005
 snapshot: 1000

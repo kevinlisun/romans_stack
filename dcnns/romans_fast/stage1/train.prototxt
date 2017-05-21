@@ -7,7 +7,7 @@ layer {
   python_param {
     module: "data_layers.rgbd_data_layer"
     layer: "RGBDDataLayer"
-    param_str: "{\'img_size\': (224, 224), \'split\': \'train\', \'dataset_dir\': \'/home/kevin/dataset/rgbd\', \'randomize\': True, \'mean\': (104.00698793, 116.66876762, 122.67891434), \'seed\': 1337, \'batch_size\': 64, \'crop_size\': (224, 224, 224, 224)}"
+    param_str: "{\'img_size\': (224, 224), \'split\': \'train\', \'dataset_dir\': \'/home/kevin/dataset/rgbd\', \'randomize\': True, \'mean\': (104.00698793, 116.66876762, 122.67891434), \'seed\': 1337, \'batch_size\': 128, \'crop_size\': (224, 224, 224, 224)}"
   }
 }
 layer {
@@ -17,13 +17,13 @@ layer {
   top: "rgb_conv1"
   param {
     name: "rgb_conv1_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "rgb_conv1_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 96
@@ -60,9 +60,9 @@ layer {
   top: "rgb_norm1"
   lrn_param {
     local_size: 5
-    alpha: 0.0005
+    alpha: 0.000500000023749
     beta: 0.75
-    k: 2
+    k: 2.0
   }
 }
 layer {
@@ -72,13 +72,13 @@ layer {
   top: "rgb_conv2"
   param {
     name: "rgb_conv2_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "rgb_conv2_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 256
@@ -115,9 +115,9 @@ layer {
   top: "rgb_norm2"
   lrn_param {
     local_size: 5
-    alpha: 0.0005
+    alpha: 0.000500000023749
     beta: 0.75
-    k: 2
+    k: 2.0
   }
 }
 layer {
@@ -127,13 +127,13 @@ layer {
   top: "rgb_conv3"
   param {
     name: "rgb_conv3_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "rgb_conv3_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 384
@@ -159,13 +159,13 @@ layer {
   top: "rgb_conv4"
   param {
     name: "rgb_conv4_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "rgb_conv4_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 384
@@ -191,13 +191,13 @@ layer {
   top: "rgb_conv5"
   param {
     name: "rgb_conv5_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "rgb_conv5_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 256
@@ -233,12 +233,12 @@ layer {
   bottom: "rgb_pool5"
   top: "rgb_fc6"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   inner_product_param {
     num_output: 4096
@@ -268,12 +268,12 @@ layer {
   bottom: "rgb_fc6"
   top: "rgb_fc7"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   inner_product_param {
     num_output: 4096
@@ -303,12 +303,12 @@ layer {
   bottom: "rgb_fc7"
   top: "rgb_fc8"
   param {
-    lr_mult: 0
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
-    lr_mult: 0
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   inner_product_param {
     num_output: 11
@@ -324,13 +324,13 @@ layer {
   top: "depth_conv1"
   param {
     name: "depth_conv1_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "depth_conv1_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 128
@@ -367,9 +367,9 @@ layer {
   top: "depth_norm1"
   lrn_param {
     local_size: 5
-    alpha: 0.0005
+    alpha: 0.000500000023749
     beta: 0.75
-    k: 2
+    k: 2.0
   }
 }
 layer {
@@ -379,13 +379,13 @@ layer {
   top: "depth_conv2"
   param {
     name: "depth_conv2_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "depth_conv2_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 256
@@ -422,9 +422,9 @@ layer {
   top: "depth_norm2"
   lrn_param {
     local_size: 5
-    alpha: 0.0005
+    alpha: 0.000500000023749
     beta: 0.75
-    k: 2
+    k: 2.0
   }
 }
 layer {
@@ -434,13 +434,13 @@ layer {
   top: "depth_conv3"
   param {
     name: "depth_conv3_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "depth_conv3_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 384
@@ -477,13 +477,13 @@ layer {
   top: "depth_conv4"
   param {
     name: "depth_conv4_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "depth_conv4_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 512
@@ -509,13 +509,13 @@ layer {
   top: "depth_conv5"
   param {
     name: "depth_conv5_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "depth_conv5_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 512
@@ -551,12 +551,12 @@ layer {
   bottom: "depth_pool5"
   top: "depth_fc6"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   inner_product_param {
     num_output: 4096
@@ -577,7 +577,7 @@ layer {
   bottom: "depth_fc6"
   top: "depth_fc6"
   dropout_param {
-    dropout_ratio: 0.5
+    dropout_ratio: 0.699999988079
   }
 }
 layer {
@@ -586,12 +586,12 @@ layer {
   bottom: "depth_fc6"
   top: "depth_fc7"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   inner_product_param {
     num_output: 4096
@@ -612,7 +612,7 @@ layer {
   bottom: "depth_fc7"
   top: "depth_fc7"
   dropout_param {
-    dropout_ratio: 0.5
+    dropout_ratio: 0.699999988079
   }
 }
 layer {
@@ -621,12 +621,12 @@ layer {
   bottom: "depth_fc7"
   top: "depth_fc8"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   inner_product_param {
     num_output: 11

@@ -11,7 +11,8 @@ import score
 import numpy as np
 
 
-weights = '/home/kevin/models/rgbd_net/romans/romans_fast_stage2_model.caffemodel'
+# weights = '/home/kevin/models/rgbd_net/romans/romans_fast_stage2_model.caffemodel'
+weights = '/home/kevin/snapshot/romans_fast_stage2_iter_9000.caffemodel'
 
 # init
 caffe.set_device(0)
@@ -22,7 +23,7 @@ solver.net.copy_from(weights)
 
 test_list = np.loadtxt('/home/kevin/dataset/rgbd/test.txt', dtype=str)
 
-for i in range(200):
+for i in range(100):
 	solver.step(100)
 	score.model_classification_test(solver, '/home/kevin/tmp/'.format(i), test_list, layer='fc8', gt='label')
 

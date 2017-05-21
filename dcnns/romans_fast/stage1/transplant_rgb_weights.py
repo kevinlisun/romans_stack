@@ -8,7 +8,7 @@ caffe.set_mode_gpu()
 net1 = caffe.Net('/home/kevin/models/caffe_net/deploy.prototxt', 
                 '/home/kevin/models/caffe_net/bvlc_reference_caffenet.caffemodel', 
                 caffe.TEST)
-params1 = ['conv1', 'conv2', 'conv3', 'conv4', 'conv5']
+params1 = ['conv1', 'conv2', 'conv3', 'conv4', 'conv5', 'fc6', 'fc7']
 #fc_params = {name: (weights, biases)}
 params_net1 = {pr: (net1.params[pr][0].data, net1.params[pr][1].data) for pr in params1}
 
@@ -23,7 +23,7 @@ for pr in params1:
 net2 = caffe.Net('/home/kevin/catkin_release/src/romans_stack/dcnns/romans_fast/stage1/train.prototxt', 
                 '/home/kevin/models/caffe_net/bvlc_reference_caffenet.caffemodel', 
                 caffe.TEST)
-params2 = ['rgb_conv1', 'rgb_conv2', 'rgb_conv3', 'rgb_conv4', 'rgb_conv5']
+params2 = ['rgb_conv1', 'rgb_conv2', 'rgb_conv3', 'rgb_conv4', 'rgb_conv5', 'rgb_fc6', 'rgb_fc7']
 #conv_params = {name: (weights, biases)}
 params_net2 = {pr: (net2.params[pr][0].data, net2.params[pr][1].data) for pr in params2}
 

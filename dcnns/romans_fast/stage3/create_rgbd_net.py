@@ -41,7 +41,7 @@ def cnn(split):
     if split == 'train':
         pylayer = 'RGBDDataLayer'
 	pydata_params['randomize'] = True
-	pydata_params['batch_size'] = 64
+	pydata_params['batch_size'] = 128
     elif split == 'test':
 	pylayer = 'RGBDDataLayer'
 	pydata_params['randomize'] = False
@@ -57,53 +57,54 @@ def cnn(split):
 
     #---------------------------------RGB-Net---------------------------------------#
     # the caffe-net (alex-net)
-    n.rgb_conv1, n.rgb_relu1 = conv_relu("rgb_conv1", n.rgb, 96, ks=11, stride=4, pad=0)
+    n.rgb_conv1, n.rgb_relu1 = conv_relu("rgb_conv1", n.rgb, 96, ks=11, stride=4, pad=0, lr1=0, lr2=0)
     n.rgb_pool1 = max_pool(n.rgb_relu1, ks=3)
     n.rgb_norm1 = L.LRN(n.rgb_pool1, lrn_param=dict(local_size=5, alpha=0.0005, beta=0.75, k=2))
 
-    n.rgb_conv2, n.rgb_relu2 = conv_relu("rgb_conv2", n.rgb_norm1, 256, ks=5, pad=2, group=2)
+    n.rgb_conv2, n.rgb_relu2 = conv_relu("rgb_conv2", n.rgb_norm1, 256, ks=5, pad=2, group=2, lr1=0, lr2=0)
     n.rgb_pool2 = max_pool(n.rgb_relu2, ks=3)
     n.rgb_norm2 = L.LRN(n.rgb_pool2, lrn_param=dict(local_size=5, alpha=0.0005, beta=0.75, k=2))
 
-    n.rgb_conv3, n.rgb_relu3 = conv_relu("rgb_conv3", n.rgb_norm2, 384, ks=3, pad=1, lr1=1, lr2=2)
-    n.rgb_conv4, n.rgb_relu4 = conv_relu("rgb_conv4", n.rgb_relu3, 384, ks=3, pad=1, group=2, lr1=1, lr2=2)
+    n.rgb_conv3, n.rgb_relu3 = conv_relu("rgb_conv3", n.rgb_norm2, 384, ks=3, pad=1, lr1=0, lr2=0)
+    n.rgb_conv4, n.rgb_relu4 = conv_relu("rgb_conv4", n.rgb_relu3, 384, ks=3, pad=1, group=2, lr1=0, lr2=0)
 
-    n.rgb_conv5, n.rgb_relu5 = conv_relu("rgb_conv5", n.rgb_relu4, 256, ks=3, pad=1, group=2, lr1=1, lr2=2)
+    n.rgb_conv5, n.rgb_relu5 = conv_relu("rgb_conv5", n.rgb_relu4, 256, ks=3, pad=1, group=2, lr1=0, lr2=0)
     n.rgb_pool5 = max_pool(n.rgb_relu5, ks=3)
 
     # fully conv
-    n.rgb_fc6, n.rgb_relu6 = fc_relu(n.rgb_pool5, 4096, lr1=1, lr2=2)
+    n.rgb_fc6, n.rgb_relu6 = fc_relu(n.rgb_pool5, 4096, lr1=0, lr2=0)
     n.rgb_drop6 = L.Dropout(n.rgb_relu6, dropout_ratio=0.5, in_place=True)
-    n.rgb_fc7, n.rgb_relu7 = fc_relu(n.rgb_drop6, 4096, lr1=1, lr2=2)
+    n.rgb_fc7, n.rgb_relu7 = fc_relu(n.rgb_drop6, 4096, lr1=0, lr2=0)
     n.rgb_drop7 = L.Dropout(n.rgb_relu7, dropout_ratio=0.5, in_place=True)
 
-    n.rgb_fc8 = fc(n.rgb_drop7, 11, lr1=0, lr2=0)
+    #n.rgb_fc8 = fc(n.rgb_drop7, 11, lr1=0, lr2=0)
 
 
     #---------------------------------Depth-Net---------------------------------------#
 
     # the base net
-    n.conv1, n.relu1 = conv_relu("conv1", n.depth, 128, ks=5, stride=2, pad=2, lr1=0, lr2=0)
-    n.depth_pool1 = max_pool(n.relu1, ks=3)
-    n.norm1 = L.LRN(n.depth_pool1, lrn_param=dict(local_size=5, alpha=0.0005, beta=0.75, k=2))
+    n.depth_conv1, n.depth_relu1 = conv_relu("depth_conv1", n.depth, 128, ks=5, stride=2, pad=2, lr1=0, lr2=0)
+    n.depth_pool1 = max_pool(n.depth_relu1, ks=3)
+    n.depth_norm1 = L.LRN(n.depth_pool1, lrn_param=dict(local_size=5, alpha=0.0005, beta=0.75, k=2))
 
-    n.conv2, n.relu2 = conv_relu("conv2", n.norm1, 256, ks=5, stride=1, pad=2, lr1=0, lr2=0)
-    n.depth_pool2 = max_pool(n.relu2, ks=3)
-    n.norm2 = L.LRN(n.depth_pool2, lrn_param=dict(local_size=5, alpha=0.0005, beta=0.75, k=2))
+    n.depth_conv2, n.depth_relu2 = conv_relu("depth_conv2", n.depth_norm1, 256, ks=5, stride=1, pad=2, lr1=0, lr2=0)
+    n.depth_pool2 = max_pool(n.depth_relu2, ks=3)
+    n.depth_norm2 = L.LRN(n.depth_pool2, lrn_param=dict(local_size=5, alpha=0.0005, beta=0.75, k=2))
 
-    n.conv3, n.relu3 = conv_relu("conv3", n.norm2, 384, ks=3, pad=1, group=2, lr1=0, lr2=0)
-    n.depth_pool3 = max_pool(n.relu3, ks=3)
+    n.depth_conv3, n.depth_relu3 = conv_relu("depth_conv3", n.depth_norm2, 384, ks=3, pad=1, group=2, lr1=0, lr2=0)
+    n.depth_pool3 = max_pool(n.depth_relu3, ks=3)
 
-    n.conv4, n.relu4 = conv_relu("conv4", n.depth_pool3, 512, ks=3, pad=1, group=1, lr1=0, lr2=0)
+    n.depth_conv4, n.depth_relu4 = conv_relu("depth_conv4", n.depth_pool3, 512, ks=3, pad=1, group=1, lr1=0, lr2=0)
 
-    n.conv5, n.relu5 = conv_relu("conv5", n.relu4, 512, ks=3, pad=1, group=1, lr1=0, lr2=0)
+    n.depth_conv5, n.depth_relu5 = conv_relu("depth_conv5", n.depth_relu4, 512, ks=3, pad=1, group=1, lr1=0, lr2=0)
     
-    n.depth_pool5 = max_pool(n.relu5, ks=3)
+    n.depth_pool5 = max_pool(n.depth_relu5, ks=3)
 
-    n.depth_fc6, n.depth_relu6 = fc_relu(n.depth_pool5, 4096, lr1=1, lr2=2)   
+    n.depth_fc6, n.depth_relu6 = fc_relu(n.depth_pool5, 4096, lr1=0, lr2=0)   
     n.depth_drop6 = L.Dropout(n.depth_relu6, dropout_ratio=0.5, in_place=True)
-    n.depth_fc7, n.depth_relu7 = fc_relu(n.depth_drop6 , 4096, lr1=1, lr2=2)
+    n.depth_fc7, n.depth_relu7 = fc_relu(n.depth_drop6 , 4096, lr1=0, lr2=0)
     n.depth_drop7 = L.Dropout(n.depth_relu7, dropout_ratio=0.5, in_place=True)
+
 
     # n.depth_fc8 = fc(n.depth_drop7, 11, lr1=1, lr2=2)
 
@@ -111,12 +112,12 @@ def cnn(split):
     # Concatenation
     n.concat = L.Concat(n.rgb_drop7, n.depth_drop7, axis=1)
 	
-    n.fuse_fc1, n.fuse_relu1 = fc_relu(n.concat, 1024, lr1=1, lr2=2)   
-    n.fuse_drop1 = L.Dropout(n.fuse_fc1, dropout_ratio=0.5, in_place=True)
-    n.fuse_fc2, n.fuse_relu2 = fc_relu(n.fuse_drop1, 1024, lr1=1, lr2=2)   
-    n.fuse_drop2 = L.Dropout(n.fuse_fc2, dropout_ratio=0.5, in_place=True)
+    #n.fuse_fc1, n.fuse_relu1 = fc_relu(n.concat, 1024, lr1=1, lr2=2)   
+    #n.fuse_drop1 = L.Dropout(n.fuse_fc1, dropout_ratio=0.5, in_place=True)
+    #n.fuse_fc2, n.fuse_relu2 = fc_relu(n.fuse_drop1, 1024, lr1=1, lr2=2)   
+    #n.fuse_drop2 = L.Dropout(n.fuse_fc2, dropout_ratio=0.5, in_place=True)
 
-    n.rgbd_fc8 = fc(n.fuse_drop2, 11, lr1=1, lr2=2)
+    n.rgbd_fc8 = fc(n.concat, 11, lr1=1, lr2=2)
 
     if split != 'deploy':
 	#n.rgb_accuracy = L.Accuracy(n.rgb_fc8, n.label)

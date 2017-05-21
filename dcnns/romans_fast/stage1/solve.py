@@ -13,6 +13,8 @@ import numpy as np
 
 weights = '/home/kevin/models/rgbd_net_fast/pretrained_model.caffemodel'
 
+#weights = '/home/kevin/snapshot/romans_fast_stage1_iter_10000.caffemodel'
+
 # init
 caffe.set_device(0)
 caffe.set_mode_gpu()
@@ -22,6 +24,6 @@ solver.net.copy_from(weights)
 
 test_list = np.loadtxt('/home/kevin/dataset/rgbd/test.txt', dtype=str)
 
-for i in range(30):
+for i in range(10):
 	solver.step(1000)
 	score.model_classification_test(solver, '/home/kevin/tmp/'.format(i), test_list, layer='fc8', gt='label')

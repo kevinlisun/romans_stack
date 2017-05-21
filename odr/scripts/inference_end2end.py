@@ -4,7 +4,7 @@
 # @Author: Kevin Sun
 # @Date:   2016-01-09 15:10:13
 # @Last Modified by:   Kevin Sun
-# @Last Modified time: 2017-02-10 02:18:50
+# @Last Modified time: 2017-05-21 17:52:26
 
 import caffe
 from odr.srv import *
@@ -167,7 +167,9 @@ if __name__ == "__main__":
 
 	print sys.argv[1]
 
-	mode = sys.argv[1]
+	model_dirctory = sys.argv[1]
+
+	mode = 'gpu'
 
 	if mode == 'cpu':
 		caffe.set_mode_cpu()
@@ -176,6 +178,7 @@ if __name__ == "__main__":
 		caffe.set_mode_gpu()
 	
 
-	net = caffe.Net('/home/kevin/models/rgbd_net/romans_old/deploy.prototxt', '/home/kevin/models/rgbd_net/romans_old/romans_model.caffemodel', caffe.TEST)
+	# net = caffe.Net('/home/kevin/models/rgbd_net/romans_old/deploy.prototxt', '/home/kevin/models/rgbd_net/romans_old/romans_model.caffemodel', caffe.TEST)
+	net = caffe.Net(model_dirctory + '/deploy.prototxt', model_dirctory + '/romans_model_fast.caffemodel', caffe.TEST)
 
 	inference_server()

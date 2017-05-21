@@ -41,7 +41,7 @@ def cnn(split):
     if split == 'train':
         pylayer = 'RGBDDataLayer'
 	pydata_params['randomize'] = True
-	pydata_params['batch_size'] = 64
+	pydata_params['batch_size'] = 128
     elif split == 'test':
 	pylayer = 'RGBDDataLayer'
 	pydata_params['randomize'] = False
@@ -77,7 +77,7 @@ def cnn(split):
     n.rgb_fc7, n.rgb_relu7 = fc_relu(n.rgb_drop6, 4096, lr1=1, lr2=2)
     n.rgb_drop7 = L.Dropout(n.rgb_relu7, dropout_ratio=0.5, in_place=True)
 
-    n.rgb_fc8 = fc(n.rgb_drop7, 11, lr1=0, lr2=0)
+    n.rgb_fc8 = fc(n.rgb_drop7, 11, lr1=1, lr2=2)
 
     #---------------------------------Depth-Net---------------------------------------#
 
@@ -100,9 +100,9 @@ def cnn(split):
     n.depth_pool5 = max_pool(n.depth_relu5, ks=3)
 
     n.depth_fc6, n.depth_relu6 = fc_relu(n.depth_pool5, 4096, lr1=1, lr2=2)   
-    n.depth_drop6 = L.Dropout(n.depth_relu6, dropout_ratio=0.5, in_place=True)
+    n.depth_drop6 = L.Dropout(n.depth_relu6, dropout_ratio=0.7, in_place=True)
     n.depth_fc7, n.depth_relu7 = fc_relu(n.depth_drop6 , 4096, lr1=1, lr2=2)
-    n.depth_drop7 = L.Dropout(n.depth_relu7, dropout_ratio=0.5, in_place=True)
+    n.depth_drop7 = L.Dropout(n.depth_relu7, dropout_ratio=0.7, in_place=True)
 
     n.depth_fc8 = fc(n.depth_drop7, 11, lr1=1, lr2=2)
 
