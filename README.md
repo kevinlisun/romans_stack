@@ -34,45 +34,45 @@
 - **ROS**, install [ROS Indigo] (http://wiki.ros.org/indigo/Installation/Ubuntu).
 
 - GNU Scientific Library (**GSL**).
-```
-sudo apt-get install libgsl0-dev
-```
+  ```
+  sudo apt-get install libgsl0-dev
+  ```
 
 ## Install romans_stack
 1. Create a catkin workspace:
-```
-$ mkdir ~/catkin_ws/src
-$ cd ~/catkin_ws/src
-```
+  ```
+  $ mkdir ~/catkin_ws/src
+  $ cd ~/catkin_ws/src
+  ```
 
 2. Create .rosinstall file and copy the followings:
-```
-- git: {local-name: romans_stack, uri: 'git@bitbucket.org:kevinlisun/romans_stack.git', version: master}
-- git: {local-name: iai_kinect2, uri: 'https://github.com/code-iai/iai_kinect2', version: master}
-```
+  ```
+  - git: {local-name: romans_stack, uri: 'git@bitbucket.org:kevinlisun/romans_stack.git', version: master}
+  - git: {local-name: iai_kinect2, uri: 'https://github.com/code-iai/iai_kinect2', version: master}
+  ```
 3. Clone the repositories:
-```
-$ wstool update
-$ rosdep install --from-paths src --ignore-src -r -y
-$ cd ..
-```
+  ```
+  $ wstool update
+  $ rosdep install --from-paths src --ignore-src -r -y
+  $ cd ..
+  ```
 4. Compile:
-```
-$ catkin_make -DCMakeType=RELEASE
-```
+  ```
+  $ catkin_make -DCMakeType=RELEASE
+  ```
 5. Add ROS workspace to the environment.
 
-add `source ~/catkin_ws/devel/setup.bash` to ~/.bashrc
+  add `source ~/catkin_ws/devel/setup.bash` to ~/.bashrc
 
 ## Run the Demo
 Download the demo data (demo.rosbag file) and the trained caffe model (deploy.proto, romans_model_fast.caffemodel) from: https://drive.google.com/open?id=0B0jMesRKPfw9MGM4ekxiV2M1RWs
 This demo assumes you download the 'romans' folder and put it under home directory (cd ~), change the directory depending your situation.
 
 1. Get RGBD stream from rosbag .
-```
-$ roslaunch camera kinect2_simulator.launch
-$ cd ~/romans/data & rosbag play --clock demo.bag
-```
+  ```
+  $ roslaunch camera kinect2_simulator.launch
+  $ cd ~/romans/data & rosbag play --clock demo.bag
+  ```
 
      **Or** get RGBD stream from kinect2
   ```
@@ -80,24 +80,24 @@ $ cd ~/romans/data & rosbag play --clock demo.bag
   ```
 
 2. Run detection node .
-```
-$ rosrun odr detection_server_kinect2
-```
+  ```
+  $ rosrun odr detection_server_kinect2
+  ```
 
 3. Run recognition node .
-```
-$ rosrun odr inference_end2end.py /home/your_username/romans/models/rgbd_net_fast
-```
+  ```
+  $ rosrun odr inference_end2end.py /home/your_username/romans/models/rgbd_net_fast
+  ```
 
 4. Run visualization node .
-```
-$ rosrun odr visualization_server
-```
+  ```
+  $ rosrun odr visualization_server
+  ```
 
 5. Run the client .
-```
-$ rosrun odr odr_test.py kinect2
-```
+  ```
+  $ rosrun odr odr_test.py kinect2
+  ```
 
 ## Programming Style
 
