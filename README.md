@@ -1,19 +1,25 @@
-# Prerequsites
+## Prerequsites
 
-1. if you just want to run the #### demo .
+If you just want to run the 
+#### demo .
 Install caffe and pycaffe: http://caffe.berkeleyvision.org/install_apt.html
 
-2. if you also want to run our #### live demo.
+If you also want to run our 
+#### live demo.
 In this implementation, MS kinect v2 is used unde Ubuntu through iai kinect2 package, so install iai_kinect2 following their instructions : https://github.com/code-iai/iai_kinect2 .
 
-(3) if you also want to #### train the models from the scrach.
+If you also want to 
+#### train the models from the scrach.
 Install GPy (http://sheffieldml.github.io/GPy/): 
 ```
 $ sudo pip install --upgrade pip
 $ sudo pip install GPy
 ```
 
-(4) [Experiment]  if you also want to do comprision experiments using R-CNN
+If you also want to do comprision 
+#### experiments 
+using R-CNN.
+
 Install SVM and Python interface: https://www.csie.ntu.edu.tw/~cjlin/libsvm/ .
 ```
 $ cd ~
@@ -26,7 +32,7 @@ $ export PYTHONPATH=/home/kevin/libsvm/python:$PYTHONPATH
 ```
 
 ## Dependencies:
-####ROS
+#### ROS
 Install [ROS Indigo] http://wiki.ros.org/indigo/Installation/Ubuntu .
 #### GNU Scientific Library (GSL).
 ```
@@ -68,7 +74,8 @@ $ roslaunch camera kinect2_simulator.launch
 $ cd ~/romans/data & rosbag play --clock demo.bag
 ```
 
-<Or> get RGBD stream from kinect2
+  #### Or
+  get RGBD stream from kinect2
 ```
 $ roslaunch camera kinect2.launch
 ```
@@ -88,7 +95,7 @@ $ rosrun odr inference_end2end.py /home/your_username/romans/models/rgbd_net_fas
 $ rosrun odr visualization_server
 ```
 
-5. Run the client
+5. Run the client .
 ```
 $ rosrun odr odr_test.py kinect2
 ```
