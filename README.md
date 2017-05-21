@@ -1,39 +1,39 @@
 ## Prerequsites
 
-If you just want to run the **demo**.
+- If you just want to run the **demo**.
 
-Install caffe and pycaffe: http://caffe.berkeleyvision.org/install_apt.html
+  Install caffe and pycaffe: http://caffe.berkeleyvision.org/install_apt.html
 
-If you also want to run our **live demo**.
+- If you also want to run our **live demo**.
 
-In this implementation, MS kinect v2 is used unde Ubuntu through iai kinect2 package, so install iai_kinect2 following their instructions : https://github.com/code-iai/iai_kinect2 .
+  In this implementation, MS kinect v2 is used unde Ubuntu through iai kinect2 package, so install iai_kinect2 following their instructions : https://github.com/code-iai/iai_kinect2 .
 
-If you also want to **train the models from the scrach**.
+- If you also want to **train the models from the scrach**.
 
-Install GPy (http://sheffieldml.github.io/GPy/): 
-```
-$ sudo pip install --upgrade pip
-$ sudo pip install GPy
-```
+  Install GPy (http://sheffieldml.github.io/GPy/): 
+  ```
+  $ sudo pip install --upgrade pip
+  $ sudo pip install GPy
+  ```
 
-If you also want to do **comprision experiments** using R-CNN.
+- If you also want to do **comprision experiments** using R-CNN.
 
-Install SVM and Python interface: https://www.csie.ntu.edu.tw/~cjlin/libsvm/ .
-```
-$ cd ~
-$ git clone https://github.com/cjlin1/libsvm.git
-$ cd libsvm & make & cd python & make
-```
-Add libsvm to the python path:
-```
-$ export PYTHONPATH=/home/kevin/libsvm/python:$PYTHONPATH
-```
+  Install SVM and Python interface: https://www.csie.ntu.edu.tw/~cjlin/libsvm/ .
+  ```
+  $ cd ~
+  $ git clone https://github.com/cjlin1/libsvm.git
+  $ cd libsvm & make & cd python & make
+  ```
+  Add libsvm to the python path:
+  ```
+  $ export PYTHONPATH=/home/kevin/libsvm/python:$PYTHONPATH
+  ```
 
 ## Dependencies:
 
-**ROS**, install [ROS Indigo] (http://wiki.ros.org/indigo/Installation/Ubuntu).
+- **ROS**, install [ROS Indigo] (http://wiki.ros.org/indigo/Installation/Ubuntu).
 
-GNU Scientific Library (**GSL**).
+- GNU Scientific Library (**GSL**).
 ```
 sudo apt-get install libgsl0-dev
 ```
@@ -50,17 +50,17 @@ $ cd ~/catkin_ws/src
 - git: {local-name: romans_stack, uri: 'git@bitbucket.org:kevinlisun/romans_stack.git', version: master}
 - git: {local-name: iai_kinect2, uri: 'https://github.com/code-iai/iai_kinect2', version: master}
 ```
-Clone the repositories:
+3. Clone the repositories:
 ```
 $ wstool update
 $ rosdep install --from-paths src --ignore-src -r -y
 $ cd ..
 ```
-3. Compile:
+4. Compile:
 ```
 $ catkin_make -DCMakeType=RELEASE
 ```
-4. Add ROS workspace to the environment.
+5. Add ROS workspace to the environment.
 
 add `source ~/catkin_ws/devel/setup.bash` to ~/.bashrc
 
@@ -74,10 +74,10 @@ $ roslaunch camera kinect2_simulator.launch
 $ cd ~/romans/data & rosbag play --clock demo.bag
 ```
 
-   **Or** get RGBD stream from kinect2
-```
-$ roslaunch camera kinect2.launch
-```
+     **Or** get RGBD stream from kinect2
+  ```
+  $ roslaunch camera kinect2.launch
+  ```
 
 2. Run detection node .
 ```
