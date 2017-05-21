@@ -1,8 +1,8 @@
-## Description
-- odr: **o**bject **d**etection and **r**ecognition framework.
-- camera: camera simulator and configurations.
-- dcnn: Deep Convolutional Neural Network architectures and training scripts.
-- matlab_toobox: matlab scripts for data pre-processing.
+## A Brief Description
+- **odr**: **o**bject **d**etection and **r**ecognition framework.
+- **camera**: camera simulator and configurations.
+- **dcnn**: Deep Convolutional Neural Network architectures and training scripts.
+- **matlab_toobox**: matlab scripts for data pre-processing.
 
 
 ## Prerequsites
