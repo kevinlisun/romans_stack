@@ -1,69 +1,99 @@
-# Prerequsites #
+# Prerequsites
 
-(1) [Demo] if you just want to run the demo
+1. if you just want to run the #### demo .
 Install caffe and pycaffe: http://caffe.berkeleyvision.org/install_apt.html
 
-(2) [Sensor] if you also want to run our live demo.
-In this implementation, MS kinect v2 is used unde Ubuntu through iai kinect2 package, so install iai_kinect2 following their instructions : https://github.com/code-iai/iai_kinect2
+2. if you also want to run our #### live demo.
+In this implementation, MS kinect v2 is used unde Ubuntu through iai kinect2 package, so install iai_kinect2 following their instructions : https://github.com/code-iai/iai_kinect2 .
 
-(3) [Training] if you also want to train the models from the scrach
-Install GPy (http://sheffieldml.github.io/GPy/):
+(3) if you also want to #### train the models from the scrach.
+Install GPy (http://sheffieldml.github.io/GPy/): 
+```
 $ sudo pip install --upgrade pip
 $ sudo pip install GPy
+```
 
 (4) [Experiment]  if you also want to do comprision experiments using R-CNN
-Install SVM and Python interface: https://www.csie.ntu.edu.tw/~cjlin/libsvm/
+Install SVM and Python interface: https://www.csie.ntu.edu.tw/~cjlin/libsvm/ .
+```
 $ cd ~
 $ git clone https://github.com/cjlin1/libsvm.git
 $ cd libsvm & make & cd python & make
-Add libsvm to the python path
+```
+Add libsvm to the python path:
+```
 $ export PYTHONPATH=/home/kevin/libsvm/python:$PYTHONPATH
+```
 
-# Dependencies # :
-Install ROS, this implementation is tested undering ROS Indigo, Ubuntu: http://wiki.ros.org/indigo/Installation/Ubuntu
-Install GNU Scientific Library (GSL): sudo apt-get install libgsl0-dev
+## Dependencies:
+####ROS
+Install [ROS Indigo] http://wiki.ros.org/indigo/Installation/Ubuntu .
+#### GNU Scientific Library (GSL).
+```
+sudo apt-get install libgsl0-dev
+```
 
-
-# Setup #
-
-Create a catkin workspace
+## Install romans_stack
+1. Create a catkin workspace:
+```
 $ mkdir ~/catkin_ws/src
 $ cd ~/catkin_ws/src
+```
 
-Create .rosinstall file and copy the followings:
-%- git: {local-name: romans_stack, uri: 'git@bitbucket.org:kevinlisun/romans_stack.git', version: master}
-%- git: {local-name: iai_kinect2, uri: 'https://github.com/code-iai/iai_kinect2', version: master}
-
+2. Create .rosinstall file and copy the followings:
+```
+- git: {local-name: romans_stack, uri: 'git@bitbucket.org:kevinlisun/romans_stack.git', version: master}
+- git: {local-name: iai_kinect2, uri: 'https://github.com/code-iai/iai_kinect2', version: master}
+```
+Clone the repositories:
+```
 $ wstool update
 $ rosdep install --from-paths src --ignore-src -r -y
 $ cd ..
-Compile
+```
+3. Compile:
+```
 $ catkin_make -DCMakeType=RELEASE
+```
+4. Add ROS workspace to the environment
+add `source ~/catkin_ws/devel/setup.bash` to ~/.bashrc
 
-# Run the Demo #
+## Run the Demo
 Download the demo data (demo.rosbag file) and the trained caffe model (deploy.proto, romans_model_fast.caffemodel) from: https://drive.google.com/open?id=0B0jMesRKPfw9MGM4ekxiV2M1RWs
 This demo assumes you download the 'romans' folder and put it under home directory (cd ~), change the directory depending your situation.
 
-- Get RGBD stream from rosbag
+1. Get RGBD stream from rosbag .
+```
 $ roslaunch camera kinect2_simulator.launch
 $ cd ~/romans/data & rosbag play --clock demo.bag
+```
 
-- [Or] get RGBD stream from kinect2
+<Or> get RGBD stream from kinect2
+```
 $ roslaunch camera kinect2.launch
+```
 
-- Run detection node
+2. Run detection node .
+```
 $ rosrun odr detection_server_kinect2
+```
 
-- Run recognition node
+3. Run recognition node .
+```
 $ rosrun odr inference_end2end.py /home/your_username/romans/models/rgbd_net_fast
+```
 
-- Run visualization node
+4. Run visualization node .
+```
 $ rosrun odr visualization_server
+```
 
-- Run the client
+5. Run the client
+```
 $ rosrun odr odr_test.py kinect2
+```
 
-# Programming Style #
+## Programming Style
 
 This implementation is following:
 ROS C++ stype: http://wiki.ros.org/CppStyleGuide
