@@ -1,12 +1,15 @@
 ## Prerequsites
 
-If you just want to run the **demo** .
+If you just want to run the **demo**.
+
 Install caffe and pycaffe: http://caffe.berkeleyvision.org/install_apt.html
 
 If you also want to run our **live demo**.
+
 In this implementation, MS kinect v2 is used unde Ubuntu through iai kinect2 package, so install iai_kinect2 following their instructions : https://github.com/code-iai/iai_kinect2 .
 
 If you also want to **train the models from the scrach**.
+
 Install GPy (http://sheffieldml.github.io/GPy/): 
 ```
 $ sudo pip install --upgrade pip
@@ -27,7 +30,9 @@ $ export PYTHONPATH=/home/kevin/libsvm/python:$PYTHONPATH
 ```
 
 ## Dependencies:
-**ROS**, install [ROS Indigo] (http://wiki.ros.org/indigo/Installation/Ubuntu) .
+
+**ROS**, install [ROS Indigo] (http://wiki.ros.org/indigo/Installation/Ubuntu).
+
 GNU Scientific Library (**GSL**).
 ```
 sudo apt-get install libgsl0-dev
@@ -55,7 +60,8 @@ $ cd ..
 ```
 $ catkin_make -DCMakeType=RELEASE
 ```
-4. Add ROS workspace to the environment
+4. Add ROS workspace to the environment.
+
 add `source ~/catkin_ws/devel/setup.bash` to ~/.bashrc
 
 ## Run the Demo
@@ -68,7 +74,7 @@ $ roslaunch camera kinect2_simulator.launch
 $ cd ~/romans/data & rosbag play --clock demo.bag
 ```
 
-  **Or** get RGBD stream from kinect2
+   **Or** get RGBD stream from kinect2
 ```
 $ roslaunch camera kinect2.launch
 ```
@@ -96,7 +102,9 @@ $ rosrun odr odr_test.py kinect2
 ## Programming Style
 
 This implementation is following:
-ROS C++ stype: http://wiki.ros.org/CppStyleGuide
+
+ROS C++ style: http://wiki.ros.org/CppStyleGuide
+
 Python REP8 style: http://www.ros.org/reps/rep-0008.html
 
 ## Reference
