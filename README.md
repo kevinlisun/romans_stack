@@ -31,8 +31,8 @@ $ mkdir ~/catkin_ws/src
 $ cd ~/catkin_ws/src
 
 Create .rosinstall file and copy the followings:
-- git: {local-name: romans_stack, uri: 'git@bitbucket.org:kevinlisun/romans_stack.git', version: master}
-- git: {local-name: iai_kinect2, uri: 'https://github.com/code-iai/iai_kinect2', version: master}
+%- git: {local-name: romans_stack, uri: 'git@bitbucket.org:kevinlisun/romans_stack.git', version: master}
+%- git: {local-name: iai_kinect2, uri: 'https://github.com/code-iai/iai_kinect2', version: master}
 
 $ wstool update
 $ rosdep install --from-paths src --ignore-src -r -y
@@ -44,27 +44,27 @@ $ catkin_make -DCMakeType=RELEASE
 Download the demo data (demo.rosbag file) and the trained caffe model (deploy.proto, romans_model_fast.caffemodel) from: https://drive.google.com/open?id=0B0jMesRKPfw9MGM4ekxiV2M1RWs
 This demo assumes you download the 'romans' folder and put it under home directory (cd ~), change the directory depending your situation.
 
-Get RGBD stream from rosbag
+- Get RGBD stream from rosbag
 $ roslaunch camera kinect2_simulator.launch
 $ cd ~/romans/data & rosbag play --clock demo.bag
 
-[Or] get RGBD stream from kinect2
+- [Or] get RGBD stream from kinect2
 $ roslaunch camera kinect2.launch
 
-Run detection node
+- Run detection node
 $ rosrun odr detection_server_kinect2
 
-Run recognition node
+- Run recognition node
 $ rosrun odr inference_end2end.py /home/your_username/romans/models/rgbd_net_fast
 
-Run visualization node
+- Run visualization node
 $ rosrun odr visualization_server
 
-Run the client
+- Run the client
 $ rosrun odr odr_test.py kinect2
 
 # Programming Style #
 
-# This implementation is following:
+This implementation is following:
 ROS C++ stype: http://wiki.ros.org/CppStyleGuide
 Python REP8 style: http://www.ros.org/reps/rep-0008.html
