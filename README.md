@@ -93,7 +93,7 @@ This demo assumes you download the 'romans' folder and put it under home directo
 
 3. Run recognition node .
   ```
-  $ rosrun odr inference_end2end.py /home/your_username/romans/models/rgbd_net_fast
+  $ rosrun odr inference_end2end.py /home/your_username/romans/models/fast
   ```
 
 4. Run visualization node .
