@@ -16,7 +16,7 @@ import os
 from odr.srv import *
 from odr.msg import *
 
-from svmutil import *
+# from svmutil import *
 import numpy as np
 from scipy import misc, io, ndimage
 import time

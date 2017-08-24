@@ -264,7 +264,10 @@ bool enforceIntensitySimilarity (const pcl::PointXYZINormal & point_a, const pcl
 
 bool enforceCurvatureOrIntensitySimilarity (const pcl::PointXYZINormal & point_a, const pcl::PointXYZINormal & point_b, float squared_distance)
 {
-  Eigen::Map<const Eigen::Vector3f> point_a_normal = point_a.normal, point_b_normal = point_b.normal;
+// ROS indigo  Eigen::Map<const Eigen::Vector3f> point_a_normal = point_a.normal, point_b_normal = point_b.normal;
+// ROS kinectic
+  const Eigen::Vector3f point_a_normal(point_a.normal[0], point_a.normal[1], point_a.normal[2]);
+  const Eigen::Vector3f point_b_normal(point_b.normal[0], point_b.normal[1], point_b.normal[2]);
   if (fabs (point_a.intensity - point_b.intensity) < 5.0f)
     return (true);
   if (fabs (point_a_normal.dot (point_b_normal)) < 0.05)
@@ -274,7 +277,11 @@ bool enforceCurvatureOrIntensitySimilarity (const pcl::PointXYZINormal & point_a
 
 bool customRegionGrowing (const pcl::PointXYZINormal & point_a, const pcl::PointXYZINormal & point_b, float squared_distance)
 {
-  Eigen::Map<const Eigen::Vector3f> point_a_normal = point_a.normal, point_b_normal = point_b.normal;
+// ROS indigo
+//  Eigen::Map<const Eigen::Vector3f> point_a_normal = point_a.normal, point_b_normal = point_b.normal;
+// ROS kinectic
+  const Eigen::Vector3f point_a_normal(point_a.normal[0], point_a.normal[1], point_a.normal[2]);
+  const Eigen::Vector3f point_b_normal(point_b.normal[0], point_b.normal[1], point_b.normal[2]);
   //std::cout << squared_distance << std::endl;
   if (squared_distance <= 0.01)
   {
