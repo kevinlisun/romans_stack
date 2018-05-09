@@ -105,6 +105,33 @@ This demo assumes you download the 'romans' folder and put it under home directo
   ```
   $ rosrun odr odr_test.py kinect2
   ```
+## the semi-supervised demo in Washington RGBD dataset
+
+1. Download the datset: http://rgbd-dataset.cs.washington.edu/dataset/rgbd-dataset_eval/
+
+2. create the experiment
+   1) go to matlab_toolbox and 
+   ```
+   $ run script_create_experiment.m
+   ```
+   , and then split into labelled and unlabelled set
+   ```
+   $ slipt_labelled_unlabelled.m
+   ```
+
+3. label propagation, it takes several hours:
+   ```
+   $ cd ~/catkin_ws/src/romans_stack/odr/washington
+   $ sh sh all_in_one.sh
+   $ cd ~/catkin_ws/src/romans_stack/odr
+   $ sh ./washington/all_in_one2.sh
+   ```
+
+4. train the dcnn with automatic labelled examples:
+   ```
+   $ cd ~/catkin_ws/src/romans_stack/dcnns/washington/semi_supervised
+   $ sh train.sh
+   ```
 
 ## Programming Style
 
