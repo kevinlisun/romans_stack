@@ -2,15 +2,15 @@ clear all
 close all
 clc
 
-dataset_dir = '/home/kevin/romans_bagfiles/evaluation2'
-dest_dir = '/home/kevin/romans_bagfiles/evaluation2/visualization'
+dataset_dir = '/home/kevin/romans_bagfiles/evaluation'
+dest_dir = '/home/kevin/romans_bagfiles/evaluation/visualization'
 
 if ~exist(dest_dir)
     mkdir(dest_dir)
 end
     
 
-sets = {'test6'}
+sets = {'test1', 'test2', 'test4', 'test5'}
 
 shift_x = -10
 shift_y = -1
@@ -74,7 +74,7 @@ for i = 1:length(sets)
         subplot(2,2,2)
         imagesc(prediction==ground_truth)
         
-        pause;
+        %pause;
         
         gt = ground_truth;
         gt(isnan(gt)) = 0;

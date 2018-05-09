@@ -17,13 +17,13 @@ layer {
   top: "conv1_1"
   param {
     name: "conv1_1_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "conv1_1_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 64
@@ -49,13 +49,13 @@ layer {
   top: "conv1_2"
   param {
     name: "conv1_2_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "conv1_2_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 64
@@ -92,13 +92,13 @@ layer {
   top: "conv2_1"
   param {
     name: "conv2_1_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "conv2_1_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 128
@@ -124,13 +124,13 @@ layer {
   top: "conv2_2"
   param {
     name: "conv2_2_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "conv2_2_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 128
@@ -167,13 +167,13 @@ layer {
   top: "conv3_1"
   param {
     name: "conv3_1_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "conv3_1_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 256
@@ -199,13 +199,13 @@ layer {
   top: "conv3_2"
   param {
     name: "conv3_2_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "conv3_2_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 256
@@ -231,13 +231,13 @@ layer {
   top: "conv3_3"
   param {
     name: "conv3_3_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "conv3_3_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 256
@@ -274,13 +274,13 @@ layer {
   top: "conv4_1"
   param {
     name: "conv4_1_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "conv4_1_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 512
@@ -306,13 +306,13 @@ layer {
   top: "conv4_2"
   param {
     name: "conv4_2_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "conv4_2_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 512
@@ -338,13 +338,13 @@ layer {
   top: "conv4_3"
   param {
     name: "conv4_3_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "conv4_3_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 512
@@ -381,13 +381,13 @@ layer {
   top: "conv5_1"
   param {
     name: "conv5_1_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "conv5_1_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 512
@@ -413,13 +413,13 @@ layer {
   top: "conv5_2"
   param {
     name: "conv5_2_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "conv5_2_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 512
@@ -445,13 +445,13 @@ layer {
   top: "conv5_3"
   param {
     name: "conv5_3_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "conv5_3_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 512
@@ -487,12 +487,12 @@ layer {
   bottom: "rgb_pool5"
   top: "rgb_fc6"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   inner_product_param {
     num_output: 4096
@@ -522,12 +522,12 @@ layer {
   bottom: "rgb_fc6"
   top: "rgb_fc7"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   inner_product_param {
     num_output: 4096
@@ -557,12 +557,12 @@ layer {
   bottom: "rgb_fc7"
   top: "rgb_fc8"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   inner_product_param {
     num_output: 51
@@ -578,13 +578,13 @@ layer {
   top: "conv1"
   param {
     name: "conv1_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "conv1_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 128
@@ -621,9 +621,9 @@ layer {
   top: "norm1"
   lrn_param {
     local_size: 5
-    alpha: 0.0005
+    alpha: 0.000500000023749
     beta: 0.75
-    k: 2
+    k: 2.0
   }
 }
 layer {
@@ -633,13 +633,13 @@ layer {
   top: "conv2"
   param {
     name: "conv2_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "conv2_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 256
@@ -676,9 +676,9 @@ layer {
   top: "norm2"
   lrn_param {
     local_size: 5
-    alpha: 0.0005
+    alpha: 0.000500000023749
     beta: 0.75
-    k: 2
+    k: 2.0
   }
 }
 layer {
@@ -688,13 +688,13 @@ layer {
   top: "conv3"
   param {
     name: "conv3_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "conv3_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 384
@@ -731,13 +731,13 @@ layer {
   top: "conv4"
   param {
     name: "conv4_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "conv4_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 512
@@ -763,13 +763,13 @@ layer {
   top: "conv5"
   param {
     name: "conv5_w"
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
     name: "conv5_b"
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   convolution_param {
     num_output: 512
@@ -805,12 +805,12 @@ layer {
   bottom: "depth_pool5"
   top: "depth_fc6"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   inner_product_param {
     num_output: 4096
@@ -840,12 +840,12 @@ layer {
   bottom: "depth_fc6"
   top: "depth_fc7"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   inner_product_param {
     num_output: 4096
@@ -875,12 +875,12 @@ layer {
   bottom: "depth_fc7"
   top: "depth_fc8"
   param {
-    lr_mult: 1
-    decay_mult: 1
+    lr_mult: 1.0
+    decay_mult: 1.0
   }
   param {
-    lr_mult: 2
-    decay_mult: 0
+    lr_mult: 2.0
+    decay_mult: 0.0
   }
   inner_product_param {
     num_output: 51

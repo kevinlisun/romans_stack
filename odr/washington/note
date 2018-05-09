@@ -1,0 +1,3 @@
+rosrun odr train_classifier_ws.py gpu rgbd apple
+
+rosrun odr classify_meta_data_ws.py gpu rgbd apple
