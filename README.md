@@ -110,13 +110,13 @@ This demo assumes you download the 'romans' folder and put it under home directo
 1. Download the datset: http://rgbd-dataset.cs.washington.edu/dataset/rgbd-dataset_eval/
 
 2. create the experiment
-   1) go to matlab_toolbox and 
+   go to matlab_toolbox and 
    ```
    $ run script_create_experiment.m
    ```
    , and then split into labelled and unlabelled set
    ```
-   $ slipt_labelled_unlabelled.m
+   $ run slipt_labelled_unlabelled.m
    ```
 
 3. label propagation, it takes several hours:
