@@ -128,7 +128,9 @@ This demo assumes you download the 'romans' folder and put it under home directo
    ```
 
 4. train the dcnn with automatic labelled examples:
+   go to matlab_toolbox and create the index for caffe
    ```
+   $ run script_create_index_for_caffe.m
    $ cd ~/catkin_ws/src/romans_stack/dcnns/washington/semi_supervised
    $ sh train.sh
    ```
