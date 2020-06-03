@@ -1,5 +1,5 @@
 /*************************************************************************
-	> File Name: detector.cp
+	> File Name: detector.cpp
 	> Author: Kevin Li Sun
 	> Mail: lisunsir@gmail.com
 	> Created Time: 2016/09/16
